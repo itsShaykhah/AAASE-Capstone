@@ -1,0 +1,27 @@
+# Core orchestration
+langgraph>=0.2.0
+langchain-core>=0.3.0
+
+# LLM providers (see app/llm/providers)
+langchain-groq>=0.2.0
+langchain-openai>=0.2.0
+
+# Search providers (see app/search/providers)
+tavily-python>=0.5.0
+requests>=2.31.0
+
+# Config and data contracts
+pydantic>=2.7.0
+pydantic-settings>=2.4.0
+python-dotenv>=1.0.0
+
+# API (also serves as the sole backend for the frontend/ React app — see
+# frontend/README or the root README's Frontend section)
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# Export
+fpdf2>=2.7.9
+
+# Testing
+pytest>=8.0.0

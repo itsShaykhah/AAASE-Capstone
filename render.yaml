@@ -1,0 +1,48 @@
+# Render Blueprint — deploys the FastAPI backend as a free-tier web
+# service. The frontend (frontend/) is a static React/Vite SPA deployed
+# separately on Netlify (see frontend/netlify.toml) — it talks to this API
+# over plain HTTP/CORS, so the two deploy and scale independently.
+
+services:
+  - type: web
+    name: ai-marketing-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: APP_ENV
+        value: production
+      - key: LLM_DEFAULT_PROVIDER
+        value: groq
+      - key: LLM_DEFAULT_MODEL
+        value: llama-3.1-8b-instant
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_API_KEY1
+        sync: false
+      - key: GROQ_API_KEY2
+        sync: false
+      - key: GROQ_API_KEY3
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY1
+        sync: false
+      - key: OPENROUTER_API_KEY2
+        sync: false
+      - key: OPENROUTER_API_KEY3
+        sync: false
+      - key: OPENROUTER_API_KEY4
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: SERPER_API_KEY
+        sync: false
+      - key: CORS_ALLOW_ORIGINS
+        # Loosest-safe default so the Netlify frontend works out of the box;
+        # tighten to the deployed Netlify URL (e.g. https://your-site.netlify.app)
+        # once you know it.
+        value: "*"
