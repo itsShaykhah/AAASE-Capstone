@@ -1,3 +1,11 @@
+## Acknowledgements
+
+This project was developed as part of the **Advanced Engineering Agentic AI Systems** program offered by **SDAIA Academy**.
+
+Organization:
+https://github.com/SDAIAAcademy
+---
+
 # AI Marketing Team
 
 A LangGraph-based multi-agent system that turns a product brief into a complete, ready-to-review marketing campaign — market research, strategy, platform-specific content, and a quality-assurance pass — displayed in a modern React dashboard.
